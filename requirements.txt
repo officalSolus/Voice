@@ -1,0 +1,6 @@
+requests
+SpeechRecognition
+gtts
+playsound
+webbrowser
+DateTime
