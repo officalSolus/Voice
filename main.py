@@ -47,10 +47,6 @@ def ai():
     speak("Hello! How can I help you?")
     while True:
         query = listen()
-
-        if "hello" in query:
-            teach.teach()
-        '''
         if "stop" in query:
             speak("Goodbye!")
             break
@@ -70,6 +66,6 @@ def ai():
             else:
                 pass
             speak(response)
-'''
+
 
 ai()
