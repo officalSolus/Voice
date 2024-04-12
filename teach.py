@@ -2,6 +2,7 @@ import speech_recognition as sr
 from gtts import gTTS
 import playsound
 import os
+import getText
 
 
 def speak(text):
@@ -19,8 +20,20 @@ def teach():
         print("Listening...")
         recognizer.adjust_for_ambient_noise(source)
         audio = recognizer.listen(source)
+    try:
+        print("Recognizing...")
+        change = recognizer.recognize_google(audio)
+        print(f"You said: {change}")
+        codeTeach(change)
+    except sr.UnknownValueError:
+        print("Could not understand audio.")
+        return ""
+    except sr.RequestError as e:
+        print(f"Could not request results; {e}")
+        return ""
 
-def codeeteach():
 
-def writechanges():
-    f = open("func.py", 'w')
+def codeTeach(change: str):
+    towrite = getText.getResult(change)
+    f = open("func.py", 'a')
+    f.write(towrite)

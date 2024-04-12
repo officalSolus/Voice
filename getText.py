@@ -18,4 +18,15 @@ def getResult(instruction):
     }
     response = requests.post(url, json=payload, headers=headers)
     result = json.loads(response.text)
-    return result['openai']['generated_text']
+    text = result['openai']['generated_text']
+    try:
+        output = rawToText(text)
+        return output
+    except ValueError:
+        return text
+
+
+def rawToText(text: str):
+    first = text.index("`")
+    second = text.index("`", first + 3)
+    return text[first + 9:second]

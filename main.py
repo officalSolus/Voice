@@ -9,7 +9,7 @@ import teach
 
 def speak(text):
     tts = gTTS(text=text, lang='en')
-    filename = 'temp.mp3'
+    filename = 'C:/Users/Solus/Desktop/Voice/temp.mp3'
     tts.save(filename)
     playsound.playsound(filename)
     os.remove(filename)
@@ -47,6 +47,10 @@ def ai():
     speak("Hello! How can I help you?")
     while True:
         query = listen()
+
+        if "hello" in query:
+            teach.teach()
+        '''
         if "stop" in query:
             speak("Goodbye!")
             break
@@ -66,6 +70,6 @@ def ai():
             else:
                 pass
             speak(response)
-
+'''
 
 ai()
