@@ -4,6 +4,8 @@ import playsound
 import os
 import datetime
 import webbrowser
+
+import getText
 import teach
 
 
@@ -43,7 +45,7 @@ def open_website(url):
     webbrowser.open(url)
 
 
-def ai():
+def ai(): #NOT PROPERLY DONE. WAS JUST TESTING
     speak("Hello! How can I help you?")
     while True:
         query = listen()
@@ -64,7 +66,7 @@ def ai():
             if a == 'yes':
                 teach.teach()
             else:
-                pass
+                speak(getText.getResult(a))
             speak(response)
 
 
