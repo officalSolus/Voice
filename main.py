@@ -2,11 +2,17 @@ import speech_recognition as sr
 from gtts import gTTS
 import playsound
 import os
+import pyttsx3
 
 import utils.getText as getText
 import utils.teach as teach
 import utils.func as func
 
+engine = pyttsx3.init('sapi5')
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[0].id)
+rate = engine.getProperty('rate')
+engine.setProperty('rate', rate-25)
 
 def initialSetup():
     f = open("functions.txt", "r")
@@ -16,11 +22,8 @@ def initialSetup():
 
 
 def speak(text):
-    tts = gTTS(text=text, lang='en', slow=False)
-    filename = 'C:/Users/Solus/Desktop/Voice/temp.mp3'
-    tts.save(filename)
-    playsound.playsound(filename)
-    os.remove(filename)
+    engine.say(text)
+    engine.runAndWait()
 
 
 def listen():
@@ -41,7 +44,7 @@ def listen():
         print(f"Could not request results; {e}")
         return ""
 
-
+'''
 def ai(condition: bool):
     possible = initialSetup()
     while condition == True:
@@ -57,7 +60,7 @@ def ai(condition: bool):
                     teach.codeTeach(query)
                     ai(True)
                 elif "stop" == query or "exit" == query:
-                    ai(False)
+                    os.
 
             raise ValueError("")
         except ValueError:
@@ -66,6 +69,29 @@ def ai(condition: bool):
             except KeyError:
                 ai()
     speak("Goodbye")
+'''
 
+def ai(condition: bool):
+    possible = initialSetup()
+    while condition:
+        query = listen()
+        try:
+            for x in possible:
+                if x in query:
+                    function = getattr(func, x)
+                    outp = function()
+                    speak(outp)
+                    ai(True)
+                elif "create" and "function" in query:
+                    teach.codeTeach(query)
+                    ai(True)
+                elif "stop" == query or "exit" == query:
+                    condition = False
+            raise ValueError("")
+        except ValueError:
+            try:
+                speak(getText.getResult(query))
+            except KeyError:
+                ai()
 
 ai(True)

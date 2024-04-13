@@ -2,15 +2,19 @@ import speech_recognition as sr
 from gtts import gTTS
 import playsound
 import os
+import pyttsx3
 import utils.getText as getText
+
+engine = pyttsx3.init('sapi5')
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[0].id)
+rate = engine.getProperty('rate')
+engine.setProperty('rate', rate-25)
 
 
 def speak(text):
-    tts = gTTS(text=text, lang='en')
-    filename = 'temp.mp3'
-    tts.save(filename)
-    playsound.playsound(filename)
-    os.remove(filename)
+    engine.say(text)
+    engine.runAndWait()
 
 
 def teach():

@@ -2,3 +2,4 @@ DateTime~=5.5
 gTTS~=2.5.1
 requests~=2.31.0
 playsound==1.2.2
+pyttsx3~=2.90

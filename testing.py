@@ -1,18 +1,10 @@
-import utils.func as func
+import pyttsx3
 
-
-def initialSetup():
-    f = open("functions.txt", "r")
-    a = f.read()
-    possible = a.split()
-    return possible
-
-
-initialSetup()
-possible = initialSetup()
-query = "what is the time"
-print(possible)
-for x in possible:
-    if x in query:
-        function = getattr(func, x)
-        function()
+engine = pyttsx3.init()
+voices = engine.getProperty('voices')
+rate = engine.getProperty('rate')
+engine.setProperty('rate', rate-25)
+for voice in voices:
+    engine.setProperty('voice', voice.id)
+    engine.say('The quick brown fox jumped over the lazy dog.')
+engine.runAndWait()
