@@ -16,7 +16,7 @@ def initialSetup():
 
 
 def speak(text):
-    tts = gTTS(text=text, lang='en')
+    tts = gTTS(text=text, lang='en', slow=False)
     filename = 'C:/Users/Solus/Desktop/Voice/temp.mp3'
     tts.save(filename)
     playsound.playsound(filename)
@@ -42,9 +42,9 @@ def listen():
         return ""
 
 
-def ai():  # NOT PROPERLY DONE. WAS JUST TESTING
+def ai(condition: bool):
     possible = initialSetup()
-    while True:
+    while condition == True:
         query = listen()
         try:
             for x in possible:
@@ -52,38 +52,20 @@ def ai():  # NOT PROPERLY DONE. WAS JUST TESTING
                     function = getattr(func, x)
                     outp = function()
                     speak(outp)
-                    ai()
+                    ai(True)
                 elif "create" and "function" in query:
                     teach.codeTeach(query)
-                    ai()
+                    ai(True)
+                elif "stop" == query or "exit" == query:
+                    ai(False)
+
             raise ValueError("")
         except ValueError:
             try:
                 speak(getText.getResult(query))
             except KeyError:
                 ai()
-
-        '''
-        if "stop" in query:
-            speak("Goodbye!")
-            break
-        elif "time" in query:
-            current_time = get_time()
-            speak(f"The current time is {current_time}")
-        elif "open" in query:
-            words = query.split()
-            website = words[words.index("open") + 1]
-            speak(f"Opening {website}")
-            open_website(f"{website}")
-        else:
-            response = "I'm sorry, I don't understand that command. Do you want to teach me how to respond to that?"
-            a = listen()
-            if a == 'yes':
-                teach.teach()
-            else:
-                speak(getText.getResult(a))
-            speak(response)
-'''
+    speak("Goodbye")
 
 
-ai()
+ai(True)

@@ -9,5 +9,3 @@ def time():
     now = datetime.datetime.now()
     return now.strftime("%H:%M")
 
-def stop():
-    return False
