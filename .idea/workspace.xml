@@ -7,8 +7,7 @@
     <list default="true" id="c3d2ed65-d75e-4adc-a183-c9e0268655ab" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/func.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/func.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/teach.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/teach.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

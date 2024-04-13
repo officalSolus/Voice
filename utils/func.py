@@ -1,6 +1,7 @@
 import webbrowser
 import datetime
 
+
 def website(url):
     webbrowser.open(url)
 

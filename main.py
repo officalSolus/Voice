@@ -1,5 +1,4 @@
 import speech_recognition as sr
-from gtts import gTTS
 import playsound
 import os
 import pyttsx3
@@ -44,32 +43,6 @@ def listen():
         print(f"Could not request results; {e}")
         return ""
 
-'''
-def ai(condition: bool):
-    possible = initialSetup()
-    while condition == True:
-        query = listen()
-        try:
-            for x in possible:
-                if x in query:
-                    function = getattr(func, x)
-                    outp = function()
-                    speak(outp)
-                    ai(True)
-                elif "create" and "function" in query:
-                    teach.codeTeach(query)
-                    ai(True)
-                elif "stop" == query or "exit" == query:
-                    os.
-
-            raise ValueError("")
-        except ValueError:
-            try:
-                speak(getText.getResult(query))
-            except KeyError:
-                ai()
-    speak("Goodbye")
-'''
 
 def ai(condition: bool):
     possible = initialSetup()
