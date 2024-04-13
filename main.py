@@ -2,11 +2,17 @@ import speech_recognition as sr
 from gtts import gTTS
 import playsound
 import os
-import datetime
-import webbrowser
 
-import getText
-import teach
+import utils.getText as getText
+import utils.teach as teach
+import utils.func as func
+
+
+def initialSetup():
+    f = open("functions.txt", "r")
+    a = f.read()
+    possible = a.split()
+    return possible
 
 
 def speak(text):
@@ -36,19 +42,28 @@ def listen():
         return ""
 
 
-def get_time():
-    now = datetime.datetime.now()
-    return now.strftime("%H:%M")
-
-
-def open_website(url):
-    webbrowser.open(url)
-
-
-def ai(): #NOT PROPERLY DONE. WAS JUST TESTING
-    speak("Hello! How can I help you?")
+def ai():  # NOT PROPERLY DONE. WAS JUST TESTING
+    possible = initialSetup()
     while True:
         query = listen()
+        try:
+            for x in possible:
+                if x in query:
+                    function = getattr(func, x)
+                    outp = function()
+                    speak(outp)
+                    ai()
+                elif "create" and "function" in query:
+                    teach.codeTeach(query)
+                    ai()
+            raise ValueError("")
+        except ValueError:
+            try:
+                speak(getText.getResult(query))
+            except KeyError:
+                ai()
+
+        '''
         if "stop" in query:
             speak("Goodbye!")
             break
@@ -68,6 +83,7 @@ def ai(): #NOT PROPERLY DONE. WAS JUST TESTING
             else:
                 speak(getText.getResult(a))
             speak(response)
+'''
 
 
 ai()
