@@ -1,0 +1,4 @@
+need to make sure the newly added functions are voice controlled
+spotify intergration for music
+web scrapping for informative knowldege
+make sure the getText.py is only used for generating functions
