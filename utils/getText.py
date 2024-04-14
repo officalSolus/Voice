@@ -9,7 +9,7 @@ url = "https://api.edenai.run/v2/text/code_generation"
 
 def getResult(instruction):
     payload = {
-        "providers": "openai",
+        "providers": "google",
         "prompt": "",
         "instruction": instruction,
         "temperature": 0.1,
@@ -18,7 +18,7 @@ def getResult(instruction):
     }
     response = requests.post(url, json=payload, headers=headers)
     result = json.loads(response.text)
-    text = result['openai']['generated_text']
+    text = result['google']['generated_text']
     try:
         output = rawToText(text)
         return output
