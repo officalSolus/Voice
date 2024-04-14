@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3d2ed65-d75e-4adc-a183-c9e0268655ab" name="Changes" comment="" />
+    <list default="true" id="c3d2ed65-d75e-4adc-a183-c9e0268655ab" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,6 +44,11 @@
     "Python.teach.executor": "Run",
     "Python.test.executor": "Run",
     "Python.testing.executor": "Run",
+    "Python.to_token.executor": "Run",
+    "Python.token.executor": "Run",
+    "Python.tokenize.executor": "Run",
+    "Python.webscrapping.executor": "Run",
+    "Python.wikiscrap.executor": "Run",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/Solus/Documents/GitHub/Voice",
