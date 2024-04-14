@@ -14,7 +14,7 @@ rate = engine.getProperty('rate')
 engine.setProperty('rate', rate-25)
 
 def initialSetup():
-    f = open("functions.txt", "r")
+    f = open("text files/functions.txt", "r")
     a = f.read()
     possible = a.split()
     return possible
