@@ -9,4 +9,3 @@ def website(url):
 def time():
     now = datetime.datetime.now()
     return now.strftime("%H:%M")
-

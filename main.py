@@ -1,6 +1,5 @@
 import speech_recognition as sr
 import playsound
-import os
 import pyttsx3
 
 import utils.getText as getText
