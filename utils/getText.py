@@ -2,7 +2,7 @@ import json
 import requests
 
 headers = {
-    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiN2M0ODBhNDQtYjVmMS00MzMwLWE0YzQtN2E0ZTMwNWFiZDg3IiwidHlwZSI6ImFwaV90b2tlbiJ9.tbsK1tlK5IatXO9e_b8Y0_Ze9QFV9sX52iV9BzZ7Ybo"}
+    "Authorization": ""}
 
 url = "https://api.edenai.run/v2/text/code_generation"
 
